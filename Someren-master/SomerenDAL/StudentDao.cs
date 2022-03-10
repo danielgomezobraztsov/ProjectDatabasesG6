@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using System.Collections.ObjectModel;
-using SomerenModel;
+using SomerenModel; 
 
 namespace SomerenDAL
 {
@@ -14,7 +14,7 @@ namespace SomerenDAL
     {      
         public List<Student> GetAllStudents()
         {
-            string query = "SELECT student_id, student_name FROM [TABLE]";
+            string query = "SELECT StudentID, StudentName FROM Student";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -27,8 +27,8 @@ namespace SomerenDAL
             {
                 Student student = new Student()
                 {
-                    Number = (int)dr["student_id"],
-                    Name = (string)(dr["student_name"].ToString())
+                    Number = (int)dr["StudentID"],
+                    Name = (string)(dr["StudentName"].ToString())
                 };
                 students.Add(student);
             }
